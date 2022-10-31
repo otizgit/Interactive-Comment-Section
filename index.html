@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge13 Interactive Comment Section</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,700;1,900&family=Inter:wght@400;500;600;700;800&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Luckiest+Guy&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,700;1,900&family=Mulish:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,700;1,900&family=Passions+Conflict&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,700;1,900&family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="comment-container">
+                <div class="comment">
+                    <div class="vote">
+                        <p class="plus">+</p>
+                        <p class="count">12</p>
+                        <p class="minus">-</p>
+                    </div>
+                    <div class="content">
+                        <div class="profile">
+                            <div class="profile-left">
+                                <img src="./images/avatars/image-amyrobson.png" alt="image-amyrobson">
+                                <p class="name">amyrobson</p>
+                                <p class="time">1 month ago</p>
+                            </div>
+                            <div class="profile-right">
+                                <img src="./images/icon-reply.svg" alt="icon-reply">
+                                <p class="reply">Reply</p>
+                            </div>
+                        </div>
+                        <div class="words">
+                            Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well. 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="comment">
+                <div class="vote">
+                    <p class="plus">+</p>
+                    <p class="count">5</p>
+                    <p class="minus">-</p>
+                </div>
+                <div class="content">
+                    <div class="profile">
+                        <div class="profile-left">
+                            <img src="./images/avatars/image-maxblagun.png" alt="image-maxblagun">
+                            <p class="name">maxblagun</p>
+                            <p class="time">2 weeks ago</p>
+                        </div>
+                        <div class="profile-right">
+                            <img src="./images/icon-reply.svg" alt="icon-reply">
+                            <p class="reply">Reply</p>
+                        </div>
+                    </div>
+                    <div class="words">
+                        Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I can dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!
+                    </div>
+                </div>
+            </div>
+            <div class="container2">
+                <div class="vertical-line">
+                    <div class="line"></div>
+                </div>
+                <div class="comment comment2">
+                    <div class="vote">
+                        <p class="plus">+</p>
+                        <p class="count">4</p>
+                        <p class="minus">-</p>
+                    </div>
+                    <div class="content">
+                        <div class="profile">
+                            <div class="profile-left">
+                                <img src="./images/avatars/image-ramsesmiron.png" alt="image-ramsesmiron">
+                                <p class="name">ramsesmiron</p>
+                                <p class="time">1 week ago</p>
+                            </div>
+                            <div class="profile-right">
+                                <img src="./images/icon-reply.svg" alt="icon-reply">
+                                <p class="reply">Reply</p>
+                            </div>
+                        </div>
+                        <div class="words">
+                            <span>@maxblagun</span> if you're still new, I'd recommend focusing on the fundamentals of HTML, CSS and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.
+                        </div>
+                    </div>
+                </div>
+                <div class="comment comment3">
+                    <div class="vote">
+                        <p class="plus">+</p>
+                        <p class="count">2</p>
+                        <p class="minus">-</p>
+                    </div>
+                    <div class="content">
+                        <div class="profile">
+                            <div class="profile-left">
+                                <img src="./images/avatars/image-juliusomo.png" alt="image-juliusomo">
+                                <p class="name">juliusomo</p>
+                                <div class="you">you</div>
+                                <p class="time">2 days ago</p>
+                            </div>
+                            <div class="profile-right">
+                                <div class="delete">
+                                    <img src="./images/icon-delete.svg" alt="icon-delete">
+                                    <p>Delete</p>
+                                </div>
+                                <img src="./images/icon-edit.svg" alt="icon-edit">
+                                <p class="edit">Edit</p>
+                            </div>
+                        </div>
+                        <div class="words">
+                            <span>@ramsesmiron</span> I couldn't agree with you more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stays constant.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="response">
+                <div class="response-img">
+                    <img src="./images/avatars/image-juliusomo.png" alt="image-juliusomo">
+                </div>
+                <div class="input-div">
+                    <input type="text" placeholder="Add a comment...">
+                </div>
+                <div class="send">SEND</div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./app.js"></script>
+</body>
+</html>
