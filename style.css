@@ -78,7 +78,7 @@ main {
 }
 
 .votes img {
-    width: clamp(11px, .7vw, 60px);
+    width: clamp(15px, .7vw, 60px);
     cursor: pointer;
 }
 
@@ -372,6 +372,9 @@ main {
         position: relative;
         padding: 20px 20px 70px;
     }
+    .comment-content {
+        line-height: 1.6;
+    }
     .reply-btn,
     .comment-options {
         position: absolute;
@@ -416,6 +419,12 @@ main {
     .comment-options {
         display: flex;
         gap: 14px;
+    }
+    .comment-info {
+        width: 100%;
+    }
+    .time {
+        margin-left: auto;
     }
 }
 
