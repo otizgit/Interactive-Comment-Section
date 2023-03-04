@@ -339,6 +339,10 @@ main {
     opacity .6s ease forwards;
 }
 
+.prevent-reply {
+    pointer-events: none;
+}
+
 @keyframes removeComment {
     to {
         transform: translateY(40px);

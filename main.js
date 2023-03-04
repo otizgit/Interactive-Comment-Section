@@ -62,39 +62,40 @@ editBtn.addEventListener("click", function () {
   });
 });
 
-let replyState = true;
 
 container.addEventListener("click", function (e) {
   let target = e.target;
   if (target.classList.value === "reply-btn") {
+    target.classList.add("prevent-reply")
     let parentElement =
       target.parentElement.parentElement.parentElement.parentElement
         .parentElement;
 
-    if (replyState) {
-      let replyBox = document.createElement("div");
-      replyBox.classList.add("reply-box");
-      replyBox.innerHTML = `
+    let replyBox = document.createElement("div");
+    replyBox.classList.add("reply-box");
+    replyBox.innerHTML = `
           <img class="main-user-img" src="./images/avatars/image-juliusomo.png" alt="">
           <div class="reply-input">
               <textarea id="" rows="3" placeholder="Add a comment..."></textarea>
           </div>
           <div class="reply">Reply</div>`;
 
-      parentElement.append(replyBox);
+    parentElement.append(replyBox);
 
-      let textArea = parentElement.querySelector(".reply-input textarea");
-      let replyBtn = parentElement.querySelector(".reply");
-      let user = parentElement.querySelector(".user");
+    let textArea = parentElement.querySelector(".reply-input textarea");
+    let replyBtn = parentElement.querySelector(".reply");
+    let user = parentElement.querySelector(".user");
 
-      replyBtn.addEventListener("click", function () {
-        if (textArea.value.trim() === "") {
-          alert("Please enter a comment.");
-        } else {
-          let repliesBox = parentElement.querySelector(".replies-box");
+    replyBtn.addEventListener("click", function () {
+      if (textArea.value.trim() === "") {
+        alert("Please enter a comment.");
+      } else {
+        target.classList.remove("prevent-reply")
 
-          let commentContainer = document.createElement("div");
-          commentContainer.innerHTML = `
+        let repliesBox = parentElement.querySelector(".replies-box");
+
+        let commentContainer = document.createElement("div");
+        commentContainer.innerHTML = `
             <div class="comment-div">
             <div class="comment">
               <div class="votes">
@@ -129,67 +130,61 @@ container.addEventListener("click", function (e) {
             </div>
             </div>`;
 
-          repliesBox.appendChild(commentContainer);
-          textArea.value = "";
-          replyBox.remove();
-          replyState = true;
+        repliesBox.appendChild(commentContainer);
+        textArea.value = "";
+        replyBox.remove();
 
-          const plus = commentContainer.querySelector(".plus");
-          const minus = commentContainer.querySelector(".minus");
-          const track = commentContainer.querySelector(".track");
+        const plus = commentContainer.querySelector(".plus");
+        const minus = commentContainer.querySelector(".minus");
+        const track = commentContainer.querySelector(".track");
 
-          plus.addEventListener("click", function () {
-            track.innerText = parseInt(track.innerText) + 1;
-          });
-          minus.addEventListener("click", function () {
-            track.innerText = parseInt(track.innerText) - 1;
-          });
+        plus.addEventListener("click", function () {
+          track.innerText = parseInt(track.innerText) + 1;
+        });
+        minus.addEventListener("click", function () {
+          track.innerText = parseInt(track.innerText) - 1;
+        });
 
-          let deleteBtn = commentContainer.querySelector(".delete");
-          deleteBtn.addEventListener("click", function () {
-            const overlay = document.querySelector(".overlay");
-            overlay.classList.add("show-overlay");
-            const modalContainer = overlay.querySelector(".modal-container");
-            modalContainer.classList.add("show-modal");
+        let deleteBtn = commentContainer.querySelector(".delete");
+        deleteBtn.addEventListener("click", function () {
+          const overlay = document.querySelector(".overlay");
+          overlay.classList.add("show-overlay");
+          const modalContainer = overlay.querySelector(".modal-container");
+          modalContainer.classList.add("show-modal");
 
-            overlay.addEventListener("click", function () {
-              this.classList.remove("show-overlay");
-              modalContainer.classList.remove("show-modal");
-            });
-
-            modalContainer.addEventListener("click", function (e) {
-              if (e.target.classList.value === "cancel") {
-                this.classList.remove("show-modal");
-              } else {
-                commentContainer.classList.add("remove-comment");
-                commentContainer.addEventListener("animationend", function () {
-                  this.remove();
-                });
-              }
-            });
+          overlay.addEventListener("click", function () {
+            this.classList.remove("show-overlay");
+            modalContainer.classList.remove("show-modal");
           });
 
-          let editBtn = commentContainer.querySelector(".edit");
-          editBtn.addEventListener("click", function () {
-            let commentContent =
-              commentContainer.querySelector(".comment-content");
-            commentContent.setAttribute("contenteditable", true);
-            commentContent.classList.add("active-comment");
-            let update = commentContainer.querySelector(".update");
-            update.classList.add("show-update");
-
-            update.addEventListener("click", function () {
-              this.classList.remove("show-update");
-              commentContent.removeAttribute("contenteditable", true);
-              commentContent.classList.remove("active-comment");
-            });
+          modalContainer.addEventListener("click", function (e) {
+            if (e.target.classList.value === "cancel") {
+              this.classList.remove("show-modal");
+            } else {
+              commentContainer.classList.add("remove-comment");
+              commentContainer.addEventListener("animationend", function () {
+                this.remove();
+              });
+            }
           });
-        }
-      });
-    } else {
-      let replyBox = parentElement.querySelector(".reply-box");
-      replyBox.remove();
-    }
-    replyState = !replyState;
+        });
+
+        let editBtn = commentContainer.querySelector(".edit");
+        editBtn.addEventListener("click", function () {
+          let commentContent =
+            commentContainer.querySelector(".comment-content");
+          commentContent.setAttribute("contenteditable", true);
+          commentContent.classList.add("active-comment");
+          let update = commentContainer.querySelector(".update");
+          update.classList.add("show-update");
+
+          update.addEventListener("click", function () {
+            this.classList.remove("show-update");
+            commentContent.removeAttribute("contenteditable", true);
+            commentContent.classList.remove("active-comment");
+          });
+        });
+      }
+    });
   }
 });
